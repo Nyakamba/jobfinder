@@ -1,5 +1,4 @@
 import { Fragment, useState } from "react";
-import PropTypes from "prop-types";
 import { Menu, Transition } from "@headlessui/react";
 import { BiChevronDown } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
@@ -93,9 +92,6 @@ function MenuList({ user, onClick }) {
     </div>
   );
 }
-MenuList.propTypes = {
-  user: PropTypes.string.isRequired,
-};
 
 const Navbar = () => {
   const user = users[1];
