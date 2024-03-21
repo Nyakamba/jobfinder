@@ -5,7 +5,7 @@ import morgan from "morgan";
 import bodyParser from "body-parser";
 
 import xss from "xss-clean";
-import mongoSanitize from "mongo-sanitize";
+import mongoSanitize from "express-mongo-sanitize";
 import dbConnection from "./dbConfig/dbConnection.js";
 
 dotenv.config();
