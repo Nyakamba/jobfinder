@@ -10,6 +10,8 @@ import CustomButton from "./CustomButton";
 //import { users } from "../utils/data";
 
 function MenuList({ user, onClick }) {
+  console.log(user);
+
   const handleLogout = () => {};
   return (
     <div>
@@ -62,7 +64,7 @@ function MenuList({ user, onClick }) {
                         active ? "text-white" : "text-gray-600"
                       } mr-2 h-5 w-5  `}
                       aria-hidden="true"
-                    />{" "}
+                    />
                     {user?.accountType ? "User Profile" : "Company Profile"}
                   </Link>
                 )}
