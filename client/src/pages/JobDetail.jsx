@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Linkedin } from "../assets";
+//import { Linkedin } from "../assets";
 import moment from "moment";
 import { AiOutlineSafetyCertificate } from "react-icons/ai";
 import { useParams } from "react-router-dom";
