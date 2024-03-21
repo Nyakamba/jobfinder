@@ -7,11 +7,9 @@ import { HiMenuAlt3 } from "react-icons/hi";
 import { AiOutlineClose, AiOutlineLogout } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import CustomButton from "./CustomButton";
-//import { users } from "../utils/data";
+import { users } from "../utils/data";
 
 function MenuList({ user, onClick }) {
-  console.log(user);
-
   const handleLogout = () => {};
   return (
     <div>
@@ -97,7 +95,7 @@ function MenuList({ user, onClick }) {
 }
 
 const Navbar = () => {
-  // const user = users[0];
+  //const user = users[1];
   const { user } = useSelector((state) => state.user);
   const [isOpen, setIsOpen] = useState(false);
 

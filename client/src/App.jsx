@@ -17,7 +17,7 @@ function Layout() {
 
   const location = useLocation();
 
-  return user ? (
+  return user?.token ? (
     <Outlet />
   ) : (
     <Navigate to="/user-auth" state={{ from: location }} replace />
