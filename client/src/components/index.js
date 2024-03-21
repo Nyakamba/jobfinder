@@ -5,5 +5,15 @@ import Navbar from "./Navbar";
 import SignUp from "./SignUp";
 import JobCard from "./JobCard";
 import ListBox from "./ListBox";
+import CompanyCard from "./CompanyCard";
 
-export { Footer, Navbar, CustomButton, SignUp, Header, JobCard, ListBox };
+export {
+  Footer,
+  Navbar,
+  CustomButton,
+  SignUp,
+  Header,
+  JobCard,
+  ListBox,
+  CompanyCard,
+};
