@@ -8,6 +8,7 @@ import ListBox from "./ListBox";
 import CompanyCard from "./CompanyCard";
 import Loading from "./Loading";
 import TextInput from "./TextInput";
+import JobTypes from "./JobTypes";
 
 export {
   Footer,
@@ -20,4 +21,5 @@ export {
   CompanyCard,
   Loading,
   TextInput,
+  JobTypes,
 };
