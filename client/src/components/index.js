@@ -6,6 +6,7 @@ import SignUp from "./SignUp";
 import JobCard from "./JobCard";
 import ListBox from "./ListBox";
 import CompanyCard from "./CompanyCard";
+import Loading from "./Loading";
 
 export {
   Footer,
@@ -16,4 +17,5 @@ export {
   JobCard,
   ListBox,
   CompanyCard,
+  Loading,
 };

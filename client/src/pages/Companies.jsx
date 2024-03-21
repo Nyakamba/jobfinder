@@ -1,6 +1,12 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { CompanyCard, CustomButton, Header, ListBox } from "../components";
+import {
+  CompanyCard,
+  CustomButton,
+  Header,
+  ListBox,
+  Loading,
+} from "../components";
 import { companies } from "../utils/data";
 
 const Companies = () => {
