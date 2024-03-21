@@ -7,6 +7,7 @@ import JobCard from "./JobCard";
 import ListBox from "./ListBox";
 import CompanyCard from "./CompanyCard";
 import Loading from "./Loading";
+import TextInput from "./TextInput";
 
 export {
   Footer,
@@ -18,4 +19,5 @@ export {
   ListBox,
   CompanyCard,
   Loading,
+  TextInput,
 };
