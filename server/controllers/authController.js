@@ -59,12 +59,14 @@ export const signIn = async (req, res, next) => {
     //validation
     if (!email || !password) {
       next("Please provide user credentials");
+      return;
     }
     //find user by email
     const user = await Users.findOne({ email }).select("+password");
 
     if (!user) {
       next("Invalid login credentials");
+      return;
     }
 
     //compare password
@@ -72,6 +74,7 @@ export const signIn = async (req, res, next) => {
 
     if (!isMatch) {
       next("Invalid login credentials");
+      return;
     }
 
     user.password = undefined;
