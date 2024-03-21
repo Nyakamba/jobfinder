@@ -192,7 +192,7 @@ export const getCompanies = async (req, res, next) => {
       queryResult = queryResult.sort("-name");
     }
 
-    // PADINATIONS
+    // PAGINATIONS
     const page = Number(req.query.page) || 1;
     const limit = Number(req.query.limit) || 20;
 
