@@ -3,7 +3,7 @@ import validator from "validator";
 import bcrypt from "bcryptjs";
 import JWT from "jsonwebtoken";
 
-const companySchema = new Schema({
+const companySchema = new mongoose.Schema({
   name: {
     type: String,
     required: [true, "Company Name is required"],
