@@ -24,7 +24,7 @@ export default userSlice.reducer;
 
 export function Login(user) {
   return (dispatch, getSate) => {
-    dispatch(userSlice.actions.login(user));
+    dispatch(userSlice.actions.login({ user }));
   };
 }
 

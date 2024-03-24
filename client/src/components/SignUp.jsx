@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import TextInput from "./TextInput";
 import CustomButton from "./CustomButton";
 import { apiRequest } from "../utils";
+import { Login } from "../redux/userSlice";
 
 const SignUp = ({ open, setOpen }) => {
   const dispatch = useDispatch();
@@ -46,9 +47,16 @@ const SignUp = ({ open, setOpen }) => {
         data: data,
         method: "POST",
       });
+      console.log(res);
 
       if (res?.status === "failed") {
         setErrMsg(res?.message);
+      } else {
+        setErrMsg("");
+        const data = { token: res?.token, ...res?.user };
+        dispatch(Login(data));
+        localStorage.setItem("userInfo", JSON.stringify(data));
+        window.location.replace(from);
       }
     } catch (error) {
       console.log(error);
