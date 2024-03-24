@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import {
@@ -57,6 +57,23 @@ const UploadJob = () => {
     }
   };
 
+  const getRecentJPost = async () => {
+    try {
+      const id = user?._id;
+      const res = await apiRequest({
+        url: "/companies/get-company/" + id,
+        methos: "GET",
+      });
+
+      setRecentPost(res?.data?.jobPosts);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getRecentJPost();
+  }, []);
   return (
     <div className="container mx-auto flex flex-col md:flex-row gap-8 2xl:gap-14 bg-[#f7fdfd] px-5">
       <div className="w-full h-fit md:w-2/3 2xl:2/4 bg-white px-5 py-10 md:px-10 shadow-md">
@@ -190,8 +207,14 @@ const UploadJob = () => {
         <p className="text-gray-500 font-semibold">Recent Job Post</p>
 
         <div className="w-full flex flex-wrap gap-6">
-          {jobs.slice(0, 4).map((job, index) => {
-            return <JobCard job={job} key={index} />;
+          {recentPost.slice(0, 4).map((job, index) => {
+            const data = {
+              name: user?.name,
+              email: user?.email,
+              logo: user?.profileUrl,
+              ...job,
+            };
+            return <JobCard job={data} key={index} />;
           })}
         </div>
       </div>
