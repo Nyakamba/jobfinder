@@ -1,5 +1,5 @@
 import { Fragment, useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Menu, Transition } from "@headlessui/react";
 import { BiChevronDown } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
@@ -7,10 +7,14 @@ import { HiMenuAlt3 } from "react-icons/hi";
 import { AiOutlineClose, AiOutlineLogout } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import CustomButton from "./CustomButton";
-import { users } from "../utils/data";
+import { Logout } from "../redux/userSlice";
 
 function MenuList({ user, onClick }) {
-  const handleLogout = () => {};
+  const dispatch = useDispatch();
+  const handleLogout = () => {
+    dispatch(Logout());
+    window.location.replace("/");
+  };
   return (
     <div>
       <Menu as="div" className="inline-block text-left">
