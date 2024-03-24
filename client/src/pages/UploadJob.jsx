@@ -8,7 +8,6 @@ import {
   Loading,
   TextInput,
 } from "../components";
-import { jobs } from "../utils/data";
 import { apiRequest } from "../utils";
 
 const UploadJob = () => {
