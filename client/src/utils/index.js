@@ -31,7 +31,7 @@ export const handleFileUpload = async (uploadFile) => {
   formData.append("upload_preset", "jobfinder");
   try {
     const response = await axios.post(
-      "https://api.cloudinary.com/v1_1/dlkj7ndjs/image/uplaod",
+      "https://api.cloudinary.com/v1_1/dlkj7ndjs/image/upload/",
       formData
     );
     return response.data.secure_url;
