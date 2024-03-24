@@ -8,8 +8,10 @@ import { FiPhoneCall, FiEdit3, FiUpload } from "react-icons/fi";
 import { Link, useParams } from "react-router-dom";
 import { companies, jobs } from "../utils/data";
 import { CustomButton, JobCard, Loading, TextInput } from "../components";
+import { apiRequest, handleFileUpload } from "../utils";
+import { Login } from "../redux/userSlice";
 
-const CompnayForm = ({ open, setOpen }) => {
+const CompanyForm = ({ open, setOpen }) => {
   const { user } = useSelector((state) => state.user);
   const {
     register,
@@ -25,8 +27,40 @@ const CompnayForm = ({ open, setOpen }) => {
   const dispatch = useDispatch();
   const [profileImage, setProfileImage] = useState("");
   const [uploadCv, setUploadCv] = useState("");
+  const [isLoading, setIsLoading] = useState("");
+  const [errMsg, setErrMsg] = useState("");
 
-  const onSubmit = () => {};
+  const onSubmit = async (data) => {
+    setIsLoading(true);
+    setErrMsg(null);
+    const url = profileImage && (await handleFileUpload(profileImage));
+
+    const newData = url ? { ...data, profileUrl: url } : data;
+    try {
+      const res = await apiRequest({
+        url: "/companies/upload-company",
+        token: user?.token,
+        data: newData,
+        method: "PUT",
+      });
+      setIsLoading(false);
+
+      if (res.status === "failed") {
+        setErrMsg({ ...res });
+      } else {
+        setErrMsg({ status: "success", message: res.message });
+        dispatch(Login(data));
+        localStorage.setItem("userInfo", JSON.stringify(data));
+
+        setTimeout(() => {
+          window.location.reload();
+        }, 1500);
+      }
+    } catch (error) {
+      console.log(error);
+      setIsLoading(false);
+    }
+  };
 
   const closeModal = () => setOpen(false);
 
@@ -163,6 +197,29 @@ const CompanyProfile = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [openForm, setOpenForm] = useState(false);
 
+  const fetchCompany = async () => {
+    setIsLoading(true);
+    let id = null;
+
+    if (params.id && params.id !== undefined) {
+      
+        id = params?.id;
+      }else{
+        id=user?._id
+      }
+      
+    }
+
+    try {
+     const res =await apiRequest({
+      url:'/companies/get-company/'+id,
+      method:'GET'
+     }) 
+    } catch (error) {
+      
+    }
+  };
+
   useEffect(() => {
     setInfo(companies[parseInt(params?.id) - 1 ?? 0]);
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -233,7 +290,7 @@ const CompanyProfile = () => {
         </div>
       </div>
 
-      <CompnayForm open={openForm} setOpen={setOpenForm} />
+      <CompanyForm open={openForm} setOpen={setOpenForm} />
     </div>
   );
 };
