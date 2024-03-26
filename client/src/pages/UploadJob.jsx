@@ -11,7 +11,7 @@ import {
 import { apiRequest } from "../utils";
 
 const UploadJob = () => {
-  const { user } = useSelector((states) => states.user);
+  const { user } = useSelector((state) => state.user);
   const {
     register,
     handleSubmit,
