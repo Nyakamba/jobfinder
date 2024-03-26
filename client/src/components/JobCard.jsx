@@ -1,10 +1,10 @@
 import { GoLocation } from "react-icons/go";
 import moment from "moment";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
 const JobCard = ({ job }) => {
-  const { user } = useSelector((state) => state.user);
+  //const { user } = useSelector((state) => state.user);
   return (
     <Link to={`/job-detail/${job?._id}`}>
       <div
