@@ -11,12 +11,10 @@ import {
 import { apiRequest } from "../utils";
 
 const UploadJob = () => {
-  const { user } = useSelector((state) => state.user);
+  const { user } = useSelector((states) => states.user);
   const {
     register,
     handleSubmit,
-    getValues,
-    watch,
     formState: { errors },
   } = useForm({
     mode: "onChange",
