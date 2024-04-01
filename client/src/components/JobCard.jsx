@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const JobCard = ({ job }) => {
   //const { user } = useSelector((state) => state.user);
-  //const { user } = useSelector((sta
+  //const { user } = useSelecto
   return (
     <Link to={`/job-detail/${job?._id}`}>
       <div
