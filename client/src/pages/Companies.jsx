@@ -7,14 +7,14 @@ import {
   ListBox,
   Loading,
 } from "../components";
-import { companies } from "../utils/data";
+
 import { apiRequest, updateURL } from "../utils";
 
 const Companies = () => {
   const [page, setPage] = useState(1);
   const [numPage, setNumPage] = useState(1);
   const [recordsCount, setRecordsCount] = useState(0);
-  const [data, setData] = useState(companies ?? []);
+  const [data, setData] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [cmpLocation, setCmpLocation] = useState("");
   const [sort, setSort] = useState("Newest");
