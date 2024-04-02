@@ -216,7 +216,7 @@ const CompanyProfile = () => {
         url: "/companies/get-company/" + id,
         method: "GET",
       });
-
+      console.log(res);
       setInfo(res?.data);
       setIsLoading(false);
     } catch (error) {
@@ -287,6 +287,7 @@ const CompanyProfile = () => {
             const data = {
               name: info?.name,
               email: info?.email,
+              logo: info?.profileUrl,
               ...job,
             };
             return <JobCard job={data} key={index} />;
