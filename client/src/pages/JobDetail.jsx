@@ -5,12 +5,28 @@ import { AiOutlineSafetyCertificate } from "react-icons/ai";
 import { useParams } from "react-router-dom";
 import { jobs } from "../utils/data";
 import { CustomButton, JobCard } from "../components";
+import { useSelector } from "react-redux";
+import { apiRequest } from "../utils";
 
 const JobDetail = () => {
-  const params = useParams();
-  const id = parseInt(params.id) - 1;
+  const { id } = useParams();
+  const { user } = useSelector((state) => state.user);
   const [job, setJob] = useState(jobs[0]);
   const [selected, setSelected] = useState("0");
+  const [isFetching, setIsfetching] = useState(false);
+
+  const getJobDetails = async () => {
+    setIsfetching(true);
+
+    try {
+      const res = await apiRequest({
+        url: "/jobs/get-job-detail/" + id,
+        method: "GET",
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     setJob(jobs[id ?? 0]);
