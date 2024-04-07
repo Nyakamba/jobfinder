@@ -169,7 +169,7 @@ const JobDetail = () => {
           </div>
         )}
 
-        {/*THEE RIGHT SIDE  */}
+        {/*TEE RIGHT SIDE  */}
         <div className="w-full md:w-1/3 2xl:w-2/4 p-5 mt-20 md:mt-0">
           <p className="text-gray-500 font-semibold">Similar Job Post</p>
 
