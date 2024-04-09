@@ -188,6 +188,6 @@ const JobDetail = () => {
     </div>
   );
 };
-// Co
+//
 
 export default JobDetail;
