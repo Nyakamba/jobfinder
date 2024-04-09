@@ -33,6 +33,29 @@ const JobDetail = () => {
     }
   };
 
+  const handleDeletePost = async () => {
+    setIsfetching(true);
+    try {
+      if (window.confirm("Delete Job Post?")) {
+        const res = await apiRequest({
+          url: "/jobs/delete-job/" + job?._id,
+          token: user?.token,
+
+          method: "DELETE",
+        });
+
+        if (res?.success) {
+          alert(res?.message);
+          window.location.replace("/");
+        }
+      }
+      setIsfetching(false);
+    } catch (error) {
+      setIsfetching(false);
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     id && getJobDetails();
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -161,10 +184,18 @@ const JobDetail = () => {
             </div>
 
             <div className="w-full">
-              <CustomButton
-                title="Apply Now"
-                containerStyles={`w-full flex items-center justify-center text-white bg-black py-3 px-5 outline-none rounded-full text-base`}
-              />
+              {user?._id === job?.company._id ? (
+                <CustomButton
+                  title="Delete Post"
+                  onClick={handleDeletePost}
+                  containerStyles={`w-full flex items-center justify-center text-white bg-red-700 py-3 px-5 outline-none rounded-full text-base`}
+                />
+              ) : (
+                <CustomButton
+                  title="Apply Now"
+                  containerStyles={`w-full flex items-center justify-center text-white bg-black py-3 px-5 outline-none rounded-full text-base`}
+                />
+              )}
             </div>
           </div>
         )}
