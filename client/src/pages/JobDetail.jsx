@@ -64,7 +64,7 @@ const JobDetail = () => {
   return (
     <div className="container mx-auto">
       <div className="w-full flex flex-col md:flex-row gap-10">
-        {/* LEFT SIDE */}
+        {/* LEFT SIDE e*/}
         {isFetching ? (
           <Loading />
         ) : (
