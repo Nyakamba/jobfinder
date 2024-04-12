@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-//import { Linkedin } from "../assets";
 import moment from "moment";
 import { AiOutlineSafetyCertificate } from "react-icons/ai";
 import { useParams } from "react-router-dom";
-import { jobs } from "../utils/data";
+//import { jobs } from "../utils/data";
 import { CustomButton, JobCard, Loading } from "../components";
 import { useSelector } from "react-redux";
 import { apiRequest } from "../utils";
