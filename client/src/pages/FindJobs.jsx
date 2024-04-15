@@ -25,6 +25,10 @@ const FindJobs = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const fetchJobs = async () => {
+    setIsFetching(true);
+  };
+
   const filterJobs = (val) => {
     if (filterJobTypes?.includes(val)) {
       setFilterJobTypes(filterJobTypes.filter((el) => el != val));
@@ -36,7 +40,7 @@ const FindJobs = () => {
   const filterExperience = async (e) => {
     setFilterExp(e);
   };
-  // s
+
   return (
     <div>
       <Header
