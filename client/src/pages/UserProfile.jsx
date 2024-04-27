@@ -22,7 +22,7 @@ const UserForm = ({ open, setOpen }) => {
   const dispatch = useDispatch();
   const [profileImage, setProfileImage] = useState("");
   const [uploadCv, setUploadCv] = useState("");
-
+  //
   const onSubmit = async (data) => {};
 
   const closeModal = () => setOpen(false);
