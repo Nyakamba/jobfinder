@@ -65,7 +65,7 @@ const UserForm = ({ open, setOpen }) => {
                     className="w-full mt-2 flex flex-col gap-5"
                     onSubmit={handleSubmit(onSubmit)}
                   >
-                    <div className="w-full flex gap-2">
+                    <di className="w-full flex gap-2">
                       <div className="w-1/2">
                         <TextInput
                           name="firstName"
@@ -94,8 +94,7 @@ const UserForm = ({ open, setOpen }) => {
                           }
                         />
                       </div>
-                    </div>
-
+                    {/* </di */}
                     <div className="w-full flex gap-2">
                       <div className="w-1/2">
                         <TextInput
