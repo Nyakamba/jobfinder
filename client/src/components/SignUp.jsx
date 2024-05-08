@@ -41,6 +41,7 @@ const SignUp = ({ open, setOpen }) => {
         URL = "auth/login";
       } else URL = "companies/login";
     }
+
     try {
       const res = await apiRequest({
         url: URL,
